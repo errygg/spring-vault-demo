@@ -47,7 +47,7 @@ Will output the dynamically generated database `user`. This demonstrates that
 the dynamic user is generated using the Vault configurations in `bootstrap.yml`
 in conjunction with the Autowired DataSource.
 
-1. `/getkvdata`
+6. `/getkvdata`
 
 Will output the KV data entered during the vault configuration step above. This
 demonstrates how to use Value bean annotations to map data in the Vault KV.
