@@ -13,7 +13,10 @@ $('#restart').click(function(event) {
       dataType: "test",
       success: function(response, textStatus, jqXHR) {
           alert("restart happend!")
-      }
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+          $('#username').html("Username has changed! Please click <a href='/getdbcredentials'>here</a> to obtain new dynamic credentials")
+      },
   });
 }); // End of Ajax
 
