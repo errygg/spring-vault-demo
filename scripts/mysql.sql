@@ -2,3 +2,5 @@ CREATE DATABASE mydb;
 CREATE USER 'vault'@'%' IDENTIFIED BY 'vault';
 GRANT ALL PRIVILEGES ON mydb.* TO 'vault'@'%' WITH GRANT OPTION;
 GRANT CREATE USER ON *.* to 'vault'@'%';
+
+CREATE TABLE users;
