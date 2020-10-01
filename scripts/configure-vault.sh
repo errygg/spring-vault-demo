@@ -22,7 +22,7 @@ fi
 
 vault secrets enable -version=2 kv
 
-vault kv put kv/application name="Erik R. Rygg" email="erik@hashicorp.com"
+vault kv put kv/application name="Suzy Smith" email="ssmith@example.com"
 
 vault secrets enable database
 

@@ -11,12 +11,9 @@ import javax.persistence.Id;
 @Entity
 @Setter
 @Getter
-public class KVModel {
+public class UserModel {
 
-  public KVModel(String name, String email) {
-    this.name = name;
-    this.email = email;
-  }
+  public UserModel() {}
 
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)

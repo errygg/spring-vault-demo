@@ -17,16 +17,18 @@ import org.springframework.ui.Model;
 @Controller
 public class AppController {
 
+  // Use name annotation to grab value from Vault KV
   @Value("${name}")
-  public String name;
+  public String kvName;
 
+  // Use email annotation to grab value from Vault KV
   @Value("${email}")
-  public String email;
+  public String kvEmail;
 
   @RequestMapping("/getkvdata")
   public String getKvData(Model model) {
-    model.addAttribute("name", name);
-    model.addAttribute("email", email);
+    model.addAttribute("name", kvName);
+    model.addAttribute("email", kvEmail);
     return "getkvdata";
   }
 
@@ -48,12 +50,19 @@ public class AppController {
     }
   }
 
-  // @RequestMapping("/getdbdata")
-  // private String getDbData() throws Exception {
-  //   try (
-  //     Connection 
-  //   )
-  // }
+  @RequestMapping("/getdbdata")
+  private String getDbData(Model model) throws Exception {
+    try (
+      Connection connection = dataSource.getConnection();
+      Statement statement = connection.createStatement()
+    ) {
+      ResultSet resultSet = statement.executeQuery("select name, email from users");
+      resultSet.next();
+      model.addAttribute("name", resultSet.getString("name"));
+      model.addAttribute("email", resultSet.getString("email"));
+      return "getdbdata";
+    }
+  }
 
   @PostMapping("/restart")
   public void restart() {
