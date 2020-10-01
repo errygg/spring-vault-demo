@@ -1,6 +1,6 @@
 package com.hashicorp.app;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,9 +12,10 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.ui.Model;
 
-@RestController
-public class Controller {
+@Controller
+public class AppController {
 
   @Value("${name}")
   public String name;
@@ -23,15 +24,17 @@ public class Controller {
   public String email;
 
   @RequestMapping("/getkvdata")
-  public String getKvData() {
-    return "Name: " + name + " and email: " + email;
+  public String getKvData(Model model) {
+    model.addAttribute("name", name);
+    model.addAttribute("email", email);
+    return "getkvdata";
   }
 
   @Autowired
   DataSource dataSource;
 
   @RequestMapping("/getdbcredentials")
-  private String getDbCredentials() throws Exception {
+  private String getDbCredentials(Model model) throws Exception {
     try (
       Connection connection = dataSource.getConnection();
       Statement statement = connection.createStatement()
@@ -40,7 +43,8 @@ public class Controller {
       ResultSet resultSet = statement.executeQuery("SELECT USER();");
       resultSet.next();
 
-      return "Connection works with `user`: " + resultSet.getString(1);
+      model.addAttribute("user", resultSet.getString(1));
+      return "getdbcredentials";
     }
   }
 

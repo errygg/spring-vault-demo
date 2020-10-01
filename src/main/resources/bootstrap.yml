@@ -3,7 +3,7 @@ spring:
     uri: http://127.0.0.1:8200
 
     # Using Token authentication to test
-    token: s.Bq1EYKCQ0UMAhOeOSld3CAwx
+    token: s.ICuoA85zU5lgM89khiTNskF8
 
     #namespace: ns1
     #authentication: pcf

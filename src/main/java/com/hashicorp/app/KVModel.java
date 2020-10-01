@@ -11,9 +11,9 @@ import javax.persistence.Id;
 @Entity
 @Setter
 @Getter
-public class Model {
+public class KVModel {
 
-  public Model(String name, String email) {
+  public KVModel(String name, String email) {
     this.name = name;
     this.email = email;
   }
