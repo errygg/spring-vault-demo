@@ -56,11 +56,11 @@ public class AppController {
       Connection connection = dataSource.getConnection();
       Statement statement = connection.createStatement()
     ) {
-      UserModel user;
-      ResultSet resultSet = statement.executeQuery(sql);
+      ResultSet resultSet = statement.executeQuery("select name, email from users");
       resultSet.next();
-      model.addAttribute("name", name);
-      model.addAttribute("email", email);
+      model.addAttribute("name", resultSet.getString("name"));
+      model.addAttribute("email", resultSet.getString("email"));
+      return "getdbdata";
     }
   }
 
