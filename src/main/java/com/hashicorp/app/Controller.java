@@ -40,7 +40,7 @@ public class Controller {
       ResultSet resultSet = statement.executeQuery("SELECT USER();");
       resultSet.next();
 
-      return "Connection works with User: " + resultSet.getString(1) + " and Password: ";
+      return "Connection works with `user`: " + resultSet.getString(1);
     }
   }
 

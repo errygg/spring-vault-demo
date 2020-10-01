@@ -12,7 +12,6 @@ public class Application {
 
   public static void main(String[] args) {
     context = SpringApplication.run(Application.class, args);
-    SpringApplication.run(Application.class, args);
   }
 
   public static void restart() {
