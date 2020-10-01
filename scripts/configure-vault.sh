@@ -35,7 +35,7 @@ vault write database/config/mysql \
 
 vault write database/roles/db-spring \
     db_name=mysql \
-    creation_statements="CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON mydb.* TO '{{name}}'@'%';GRANT ALL PRIVILEGES ON mydb." \
+    creation_statements="CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON mydb.* TO '{{name}}'@'%';" \
     default_ttl="1h" \
     max_ttl="24h"
 

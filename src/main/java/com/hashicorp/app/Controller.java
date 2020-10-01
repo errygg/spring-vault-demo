@@ -1,6 +1,7 @@
 package com.hashicorp.app;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.sql.Connection;
@@ -49,4 +50,9 @@ public class Controller {
   //     Connection 
   //   )
   // }
+
+  @PostMapping("/restart")
+  public void restart() {
+    Application.restart();
+  }
 }
