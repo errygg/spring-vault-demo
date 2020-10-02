@@ -24,7 +24,7 @@
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="#"><img style="width:20%"
-              src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Ford_logo_flat.svg"> HashiCorp Vault PCF Demo App</a>
+              src="Ford_logo_flat.svg"> HashiCorp Vault PCF Demo App</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,6 +38,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/restart">Restart Application</a>
+            </li>
+            <li class="nav-item">
+              <a id="restart" class="nav-link" href="/getdbdata">Get DB Data</a>
             </li>
           </ul>
           <!--
@@ -54,12 +57,12 @@
      <h1 class="mt-5">Application Flow</h1>
       <p class="lead">The purpose of this application is to demonstrate how a PCF application can be used to obtain secrets from HashiCorp Vault with a focus on Dynamic Secrets.
       The following diagram depicts the application flow:</p>
-      <img src="appflow.jpg">
+      <a href="appflow.png"><img style="width:70%;padding:5px" class="center" src="appflow.png"></a>
     </main>
 
     <footer class="footer">
       <div class="container">
-        <span class="text-muted"><img style="width:20%" src="https://static.carahsoft.com/concrete/files/9815/8878/4028/HashiCorp-Vault.jpg"></span>
+        <span class="text-muted"><img style="width:20%" src="hashicorp_vault_logo.png"></span>
       </div>
     </footer>
 
