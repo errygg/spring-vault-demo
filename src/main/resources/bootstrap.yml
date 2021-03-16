@@ -3,9 +3,9 @@ spring:
     uri: http://127.0.0.1:8200
 
     # Using Token authentication to test
-    token: s.kOtly6La5JyyrTHaJ1iRmiXQ
+    token: s.ckSv5pV6pcmqqWETyrk0i97B 
 
-    #namespace: ns1
+    namespace: ns1
     #authentication: pcf
     #role: flasktest
     #pcf.pcf-path: cf

@@ -17,6 +17,10 @@ import org.springframework.ui.Model;
 @Controller
 public class AppController {
 
+  // Grab the logo from the application properties
+  @Value("${spring.logo.img}")
+  public String logo;
+
   // Use name annotation to grab value from Vault KV
   @Value("${name}")
   public String kvName;
@@ -29,11 +33,14 @@ public class AppController {
   public String getKvData(Model model) {
     model.addAttribute("name", kvName);
     model.addAttribute("email", kvEmail);
+    model.addAttribute("logoValue", logo);
     return "getkvdata";
   }
 
   @Autowired
   DataSource dataSource;
+
+
 
   @RequestMapping("/getdbcredentials")
   private String getDbCredentials(Model model) throws Exception {
@@ -46,6 +53,8 @@ public class AppController {
       resultSet.next();
 
       model.addAttribute("user", resultSet.getString(1));
+      model.addAttribute("logoValue", logo);
+
       return "getdbcredentials";
     }
   }
@@ -60,6 +69,7 @@ public class AppController {
       resultSet.next();
       model.addAttribute("name", resultSet.getString("name"));
       model.addAttribute("email", resultSet.getString("email"));
+      model.addAttribute("logoValue", logo);
       return "getdbdata";
     }
   }
